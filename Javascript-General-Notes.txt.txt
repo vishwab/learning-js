@@ -1,0 +1,49 @@
+Debugging can be done by either alert() which is intrusive or using console.log() which outputs text
+to the console
+
+
+Apps ate the world, the web ate apps, and JavaScript ate the web.
+
+Babel is a compiler for writing next gen Javascript - https://babeljs.io/
+
+A const object can't be reassigned to refer to a completely different object, but the object it refers 
+to can have its properties mutated. JavaScript also has the ability to freeze() objects, but those 
+objects are only frozen at the root level, meaning that a nested object can still have properties of 
+its properties mutated. In other words, there's still a long road ahead before we see true composite 
+immutables in the JavaScript specification.
+
+Is Javascript the only browser supported language? says https://medium.com/javascript-scene/why-learn-functional-programming-in-javascript-composing-software-ea13afc7a257
+
+npm is the largest open-source package in the world. This can be used to download/install packages and
+servers such as gulp.
+
+ECMAScript
+-----------
+https://en.wikipedia.org/wiki/ECMAScript
+
+ECMAScript is a scripting language spec created to standardize JavaScript, so as to foster multiple
+independent implementations. JavaScript is the best known implementation of JavaScript. Other 
+implementations are JScript and ActionScript.
+Coders commonly use ECMAScript for client-side scripting on the World Wide Web, and it is increasingly 
+being used for writing server applications and services using Node.js.
+
+ECMAScript (ES6) has been the standard version for JS so far. A new one is out in 2017 which is ES7.
+
+
+TypeScript is a free and open-source programming lang developed and maintained by Microsoft. It is a
+strict syntactical superset of JavaScript and adds optional static typing to the language.
+
+
+-------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+

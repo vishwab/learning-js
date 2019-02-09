@@ -1,0 +1,82 @@
+Functions
+=========
+A function is a names and parameterized block of JavaScript code that you define once, and can then
+invoke repeatedly.
+
+Example:
+function plus1(x) {	// define a function with name plus1 with parameter "x"
+	return x+1;	// Return a value one larger than the value passed in.
+};			// close function
+
+var y = 3;
+
+plus1(y)		// => 4
+
+var square = function(x) {	// functions are values and can be assigned to vars
+	return x*x;		// compute the function's value
+};				// semicolon marks the end of the assignment
+
+When we combine Functions with Objects we get Methods:
+
+// When functions are assigned to the properties of an object, we call them "methods".
+// All JavaScript Objects have methods:
+var a = [];		// create an empty array
+a.push(1,2,3);		// The push() method adds elements to an array
+a.reverse();		// Another method: reverse the order of elements
+
+
+// We can define our own methods, too. The "this" keyword refers to the object on which
+// the method is defined: in this case the points array
+var points = [		// An array with 2 elements
+	{x:0, y:0},	// Each element is an object
+	{x:1, y:1}
+];
+
+points.dist = function() {		// Define a method to compute distance b/w points
+	var p1 = this[0];		// First element of array we're invoked on
+	var p2 = this[1];		// Second element of the "this" object
+	var a = p2.x - p1.x;		// => 1: Diff in X coordinates
+	var b = p2.y - p1.y		// => 1: Diff in Y coordinates
+	return Math.sqrt(a*a + b*b);	// => 1.414: Math.sqrt() computes the square root. 
+					// a*a is 1, b*b is 1, 1+1 = 2 and then Square root of 2 is 1.414
+};
+
+points.dist()		// => 1.414: distance b/w our 2 points
+
+
+// Here are some functions whose bodies demonstrate common JavaScript control structure statements.
+// JavaScript statements include conditionals and loops using the syntax of C, C++, Java and others langs
+
+function abs(x) {		// A function to compute the absolute value
+	if (x >= 0){		// The if statement...
+		return x;	// executes this code if comparison is true.
+	} else {		// The optional else clause executes its code if
+		return -x;	// the comparison is false.
+	}			// Curly braces are optional when 1 statement per clause.
+}				// Note return statements nested inside if/else
+
+// While LOOP
+function factorial(n) {		// A function to compute factorials
+	var product = 1;	// Start with a product of 1
+	while (n > 1) {		// Repeat statements in {} while expr in () is true
+		product *= n;	// Shortcut for product = product * n;
+		n--;		// Shortcut for n = n - 1;
+	}			// End of loop
+	return product;		// Return the product
+}
+factorial(4)			// => 24: 1*4*3*2
+
+
+// FOR LOOP
+function factorial2(n) {		// Another version using FOR loop
+	var i, product = 1;		// Start with 1
+	for (i = 2; i <= n; i++) 	// Automatically increment i from 2 up to n
+		product *= i;		// Do this each time. {} no needed for 1-line loops
+	return product;			// Return the factorial
+}
+factorial2(5);				// => 120: 1*2*3*4*5
+
+
+
+
+

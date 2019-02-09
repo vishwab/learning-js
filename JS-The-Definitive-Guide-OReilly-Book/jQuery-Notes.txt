@@ -1,0 +1,10 @@
+jQuery Notes
+============
+Content is HTML, Presentation is CSS, Behavior (event handling) is JavaScript.
+The APIs in JavaScript are somewhat complex and, until recently, riddled with browser incompatibilities
+For these reasons, many or most client-side JavaScript programmers choose to use a client-side library
+or framework to simplify their basic programming tasks. The most popular such library is jQuery.
+The jQuery library defines a clever and easy-to-use API for scripting document, content, presentation,
+and behavior.
+jQuery code is easy to identify because it makes frequent use of a function names $().
+

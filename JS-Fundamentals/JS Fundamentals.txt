@@ -1,0 +1,151 @@
+JS Fundamentals
+===============
+JavaScript can be embedded within HTML using <script> tag.
+
+Content is HTML, Presentation is CSS, Behavior (event handling) is JavaScript.
+The APIs in JavaScript are somewhat complex and, until recently, riddled with browser incompatibilities
+For these reasons, many or most client-side JavaScript programmers choose to use a client-side library
+or framework to simplify their basic programming tasks. The most popular such library is jQuery.
+The jQuery library defines a clever and easy-to-use API for scripting document, content, presentation,
+and behavior.
+jQuery code is easy to identify because it makes frequent use of a function names $().
+
+
+JS is a case-sensitive language.
+
+Semi-colon b/w statements is NOT needed if they are written on separate lines.
+
+JS Types
+--------
+Primitive types - numbers, strings, booleans
+	NULL and undefined are primitive values but they are not like above types. Considered to be 
+	sole members of their own special type.
+
+Object types - Any JS that is not a number, string, boolean, null or undefined is considered an Object.
+	An object is a collection of properties, where each property has a name & a value (either a 
+	primitive value or an object)
+	An Array is a specical ordered object.
+
+
+
+Lexical Structure
+-----------------
+The lexical structure of a programming language is the set of elementary rules that specifies how you 
+write programs in that language. It is the lowest-level syntax of a language; it specifies such things
+as what variable names look like, the delimiter characters for comments etc...
+
+
+Expressions
+-----------
+An Expression is a phrase of JS that can be evaluted to produce a value but it doesn't DO anything.
+It doesn't alter the program state in anyway.
+
+Statements
+-----------
+Statements on the other hand don't have a value (or don't have a value we care about), but DO alter
+the program state.
+
+Statement Examples: Declarations, Assignments, and Control structures such as conditionals and loops.
+
+Event Handler
+-------------
+An Event handler is a JS function that we register with the browser and the browser invokes when
+some specified type of event occurs. The event of interest might be a mouse click or a key press (or
+on a smart phone it might be a 2 finger gesture of some sort). Or an event handler might be triggered
+when the browser finishes loading a document, when the user resizes the browser window, or when the
+user enters data into an HTML form element.
+The simplest way to define event handlers is with HTML attributes that begin with "on". The "onclick" 
+handler is a particularly useful one when you're writing simple test programs.
+
+JS Coding Basics
+----------------
+var x = 0 // variable named x defaulted to 0.
+
+// JS supports several types of values
+x = 1; 			// number
+x = 0.01; 		// just one number type for integers and reals
+x = "hell world";	// Strings of text in quotation marks
+x = 'Java Script';	// Single quote marks also delimit strings.
+x = true; 		// Boolean values
+x = false;		// the other boolean value
+x = null;		// null is a special value that means "no value"
+x = undefined;		// undefined is like null
+
+// 2 other important JavaScript types are Objects and Arrays
+
+// An object is a collection of name/value pairs, or a string to value map
+var book = {		// Objects are enclosed in curly braces
+topic: "Java Script",	// The Property "topic" has value "Java Script"
+fat: true		// The Property "fat" has value true
+};			// The curly brace marks the end of the object. Don't forget the ; at the end
+
+// Access the properties of an object with . or []
+book.topic		// => value is "Java Script"
+book["fat"]		// => true: another way to access the value
+book.author = "Vishwa";	// Create new properties by assignment
+book.contents = {};	// {} is an empty object with no properties
+
+// JavaScript also supports arrays (numerically indexed lists) of values:
+var primes = [2, 3, 5, 7];	// An array of 4 valus, delimited with [ and ]
+primies[0]			// => 2: the first element (index 0) of the array.
+primes.length			// => 4: how many elements in the array.
+primes[primes.length - 1]	// => 7: the last element of the array
+primes[4] = 9;			// Add a new element by assignment
+primes[4] = 11;			// Or alter an existing element by assignment
+var empty = []			// [] is an empty array with no elements
+empty.length			// => 0
+
+// Arrays and Objects can hold other Arrays and Objects:
+var points = [		// An array with 2 elements
+	{x:0, y:0},	// Each element is an object
+	{x:1, y:1}
+];
+
+var data = {				// An object with 2 properties
+	trial1: [[1,2], [3,4]],		// The value of each property is an array
+	trial2: [[2, 3], [4, 5]]	// The elements of the arrays are arrays
+};
+
+
+One of the most common ways to form an expression in JS is to use operators like these:
+// Operators act on values (the operand) to produce a value.
+// Arithmetic operators are the most common:
+3 + 2	// => 5: addition
+3 - 2	// => 1: subtraction
+3 * 2	// => 6: multiplication
+3 / 2	// => 1.5: division
+
+points[1].x - points[0].x	// => 1: more complicated operands
+
+"3" + "2"	// + adds numbers and concatenates strings
+
+
+// Some short-hand arithmetic operators
+var count = 0;
+count++;	// increment count by 1
+count--;	// decrement count by 1
+count += 2	// Add 2, same as count = count + 2
+count *= 3	// Multiple by 3, same as count = count * 3
+count		// => 6: variable names are expressions too.
+
+
+// Equality and rational operators test whether 2 values are equal, unequal, less than, greater than...
+var x = 2, y = 3	// simple assignment of 2 variables
+x == y;			// => false: equality
+x != y;			// => true: inequality
+x < y;			// => true: less-than
+x <= y;			// => true: less-than or equal-to
+x > y;			// => false: greater-than
+x >= y;			// => false: greater-than or equal to
+"two" == "three"	// => false: the 2 strings are different
+false == (x > y)	// => true: false is equal to false
+
+// logical operators combine or invert boolean values
+(x == 2) && (y == 3)	// => true: both comparisons are true. && is AND
+(x > 3) || (y < 3)	// => false: neither comparison is true. || is OR
+!(x == y)		// => true: ! inverts a boolean value
+
+
+
+
+

@@ -1,0 +1,23 @@
+Classes and Modules
+===================
+// Define a constructor function to initialize a new point object:
+function Point(x,y) {
+	this.x = x;
+	this.y = y;
+}
+
+// Use a constructor function with the keyword "new" to create instances
+var p = new Point(1, 1);	// the geometric point (1, 1)
+
+// Define methods for Point objects by assigning them to the prototype object associated with the
+// constructor function.
+Point.prototype.r = function() {
+	return Math.sqrt(		// Return the square root of x squared + y squared
+		this.x * this.x +	// This is the Point object on which the method...
+		this. y * this.y	// ...is invoked.
+	);
+};
+
+// Now the Point object p (and all future Point objects) inherits the method r()
+p.r()		// => 1.414 (Square root of (1*1) + (1*1))
+

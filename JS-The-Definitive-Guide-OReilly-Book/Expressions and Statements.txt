@@ -1,0 +1,11 @@
+Expressions and Statements
+==========================
+
+An Expression is a phrase of JS that can be evaluted to produce a value but it doesn't DO anything.
+It doesn't alter the program state in anyway.
+
+Statements on the other hand don't have a value (or don't have a value we care about), but DO alter
+the program state.
+
+Statement Examples: Declarations, Assignments, and Control structures such as conditionals and loops.
+

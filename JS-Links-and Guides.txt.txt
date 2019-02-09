@@ -1,0 +1,13 @@
+Top Javascript Frameworks and Topics to learn in 2017:
+https://medium.com/javascript-scene/top-javascript-frameworks-topics-to-learn-in-2017-700a397b711
+  (THIS IS THE ONE ON MEDIUM FROM WHICH I WENT TO OTHER LINKS)
+
+
+A Functional Programmer’s Introduction to JavaScript (Composing Software):
+https://medium.com/javascript-scene/a-functional-programmers-introduction-to-javascript-composing-software-d670d14ede30
+
+The Rise and Fall and Rise of Functional Programming (Composing Software):
+https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c
+
+Choosing a Javascript Framework in 2017
+https://medium.com/@ZombieCodeKill/choosing-a-javascript-framework-535745d0ab90

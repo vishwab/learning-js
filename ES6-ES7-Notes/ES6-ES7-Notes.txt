@@ -1,0 +1,155 @@
+ES6-ES7-Notes
+=============
+
+Dedicated book for ES6/ES7 is - https://www.syncfusion.com/resources/techportal/details/ebooks/ECMAScript_6_Succinctly
+
+ Below is a list of some of the ES6 features we get while developing applications in Aurelia:
+
+Classes
+-------
+A class in ES6 looks like:
+class Welcome {
+	constructor() {
+	}
+}
+
+
+Scoping
+-------
+Another long-awaited feature is better scoping in JavaScript. In ES5, regardless of whether our variables were declared inside functions or blocks, they would be hoisted to the top block level, and this would cause a lot of problems. We now have a new keyword, let, and this gives us true block-level scoping. Consider the following:
+class Welcome {  
+	constructor() {  
+		this.result = 0;  
+	}
+	add(first, second) {  
+		let result = -1;    
+		if (first && second) {   
+			let result = first + second;  
+		}    
+		return result;  
+	} 
+}  
+
+Before we go on and use this class and the add function, let’s look at what we have created here. In ES5, this could potentially cause a lot of headaches and problems. We are defining a class-level variable inside the constructor called result. Next, we create a function-level variable called result and initialize it to -1. We then create a block-level variable and initialize it to the first and second variables. Finally, we return the variable result back from the function.  
+
+Let’s now write a little code to test this class and see what happens:
+let w = new Welcome(); 
+console.log(w.add(1,2)); // -1 
+console.log(w.result); // 0 
+
+Our code is now more consistent and behaves as would be expected. You can see that the add function returns -1 when we call it. You can also see that when we access the class-level variable, we get 0 back.  
+
+
+Template strings 
+----------------
+Strings in JavaScript have always been a pain, and have always been limited when compared to other mature languages. Template strings change this completely and give us a lot of power with our string manipulation. Some of the chief features are: 
+ String interpolation  Embedded expressions  Multiline strings 
+Before we look at any of these new features, we must learn the pattern for creating template strings. Consider the following: 
+Code Listing 58 
+let message = `Hello World`; 
+This simple example introduces the use of backticks (`) instead of single or double quotes. That is all there is to template strings. Let’s now look at how we can use them. 
+
+String interpolation 
+--------------------
+String interpolation gives us the ability to substitute values within our template strings with variables. Let’s look at the following example: 
+ 
+let fname = 'Matt'; 
+let lname = 'Duffield'; 
+let message = `Hello ${fname} ${lname}, how are you?`;  
+
+When we execute this script, we get: “Hello Matt Duffield, how are you?”  
+
+Embedded expressions 
+--------------------
+Embedded expressions allow us to embed JavaScript expressions in our template strings. Consider the following example: 
+ 
+let three = 3; 
+let four = 4; 
+let message = `The product of 3 x 4 is ${three*four}`;  
+
+When we execute this script, we get: “The product of 3 x 4 is 12”. We can call functions and even access members off of our objects, as well. 
+
+Multiline strings 
+-----------------
+Multiline strings are by far one of the most awaited features of ES6, as they give us cleaner syntax when trying to author multiline content. Let’s look at the following example:
+
+let user = 'Matt'; 
+let message = `Thank you ${user} for contact the support team! 
+We value your business and are more than happy to answer any questions you 
+may have.`;
+
+Note: The creators of Aurelia wisely chose to use the same syntax notation for their databinding engine. 
+
+Decorators 
+----------
+Decorators allow us to annotate pieces of code to help reduce redundancies. Consider the following example of how we use decorators for dependency injection:
+
+import {inject} from 'aurelia-framework'; 
+import {DataService} from 'services/data-service'; 
+ 
+@inject(DataService) 
+	class Customer {  
+		constructor(dataService) {  
+			this.dataService = dataService;  
+		} 
+ 	}
+ ... 
+ } 
+
+You will see other advantages of using decorators when working with TypeScript in Aurelia, as well. If you wish to use dependency injection without the inject decorator, you can write it out as follows:
+import {DataService} from 'services/data-service'; 
+ 
+class Customer {  
+	static inject = [DataService]; 
+ 	constructor(dataService) {  
+ 		this.dataService = dataService;  
+ 	} 
+ 
+ ... 
+ } 
+
+ Note: By default, Aurelia handles all dependencies as singletons. You can change this by decorating your class with the @transient decorator. 
+
+
+ Async/await 
+------------
+Writing code that allows you to make asynchronous calls while keeping the code clean has long plagued JavaScript users. Using libraries and promises, we have come closer, but now with async and await coming in ES7, we are getting a paradigm that makes asynchronous programming much less difficult. First, let’s look at how we currently implement our logic without async and await: 
+
+import {DataService} from 'services/data-service'; 
+ 
+class Customer {  
+	static inject = [DataService];  
+	data = []; 
+ 
+ 	constructor(dataService) {  
+ 		this.dataService = dataService;  
+ 	} 
+ 
+ 	activate() {  
+ 		return this.dataService.getCustomers()   
+ 		.then(response => {   
+ 			this.data = response.json();   
+ 		});
+ 	} 
+ } 
+
+If we return a promise from the activate function part of the screen lifecycle, Aurelia will wait until the call returns and executes the then callback before binding to the screen. We will go into Aurelia’s screen activation lifecycle later, but this is a common scenario and needs to be shown so you can see the differences in implementation. Now, let’s look at the same implementation using async and await: 
+
+import {DataService} from 'services/data-service'; 
+ 
+class Customer {  
+	static inject = [DataService];  
+	data = []; 
+ 
+ 	constructor(dataService) {  
+ 		this.dataService = dataService; 
+ 	} 
+ 
+	async activate() {  
+		let response = await this.dataService.getCustomers();  
+		this.data = await response.json();  
+	} 
+} 
+
+We are effectively doing exactly the same thing. In fact, Babel will transpile this code to look pretty much like the first example. This is much cleaner and helps reduce the madness involved writing a lot asynchronous code. 
+
